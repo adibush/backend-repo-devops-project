@@ -145,6 +145,38 @@ def get_reservation(reservation_id):
     return jsonify(reservation), 200
 
 
+def find_reservation(search_value):
+
+    if ObjectId.is_valid(search_value):
+
+        return get_reservation(search_value)
+
+    reservation = reservations.find_one(
+        {
+            "$or": [
+                {
+                    "fullName": search_value
+                },
+                {
+                    "email": search_value
+                },
+            ]
+        }
+    )
+
+    if reservation is None:
+
+        return jsonify(
+            {
+                "message": "Reservation not found"
+            }
+        ), 404
+
+    reservation["_id"] = str(reservation["_id"])
+
+    return jsonify(reservation), 200
+
+
 def delete_reservation(reservation_id):
 
     if not ObjectId.is_valid(reservation_id):

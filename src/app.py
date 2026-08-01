@@ -3,7 +3,7 @@ from flask_cors import CORS
 
 from reservation import (
     create_reservation,
-    get_reservation,
+    find_reservation,
     delete_reservation,
     get_hotels,
 )
@@ -28,7 +28,7 @@ def create():
 @app.route("/reservation/<reservation_id>", methods=["GET"])
 def get(reservation_id):
 
-    return get_reservation(reservation_id)
+    return find_reservation(reservation_id)
 
 
 @app.route("/reservation/<reservation_id>", methods=["DELETE"])
