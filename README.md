@@ -16,15 +16,15 @@ The backend provides the API for a hotel reservation system and connects to Mong
 
 ```text
 backend-repo-devops-project/
-├── .github/
-│   └── workflows/
-├── src/
-│   ├── app.py
-│   ├── database.py
-│   └── reservation.py
-├── Dockerfile
-├── requirements.txt
-└── README.md
+|-- .github/
+|   `-- workflows/
+|-- src/
+|   |-- app.py
+|   |-- database.py
+|   `-- reservation.py
+|-- Dockerfile
+|-- requirements.txt
+`-- README.md
 ```
 
 ## API Endpoints
